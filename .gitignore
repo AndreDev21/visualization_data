@@ -1,0 +1,6 @@
+# Ignore all .env files
+.env
+.env.backup
+.env.local
+.env.test
+.env.production
