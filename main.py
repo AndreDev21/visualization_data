@@ -58,4 +58,3 @@ bank_data = pd.concat(series_list, axis=1)
 bank_data.columns = column_names
 bank_data.set_index('Date', inplace = True)
 
-print(bank_data)
