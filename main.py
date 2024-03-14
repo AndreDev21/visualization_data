@@ -43,8 +43,11 @@ series_list = []
 for ticker in tickers:
     series_list.append(pd.DataFrame(bank_data[ticker]['chart'])['close'])
 
-#Add in a column of dates
-series_list.append(pd.DataFrame(bank_data['JPM']['chart'])['date'])
+# Extract the dates for any one ticker (let's say 'JPM' for consistency)
+dates = pd.DataFrame(bank_data['JPM']['chart'])['date']
+
+# Append the dates just once
+series_list.append(dates)
 
 #Copy the 'tickers' list from earlier in the script, and add a new element called 'Date'. 
 #These elements will be the column names of our pandas DataFrame later on.
@@ -57,4 +60,11 @@ bank_data = pd.concat(series_list, axis=1)
 #Name the columns of the DataFrame and set the 'Date' column as the index
 bank_data.columns = column_names
 bank_data.set_index('Date', inplace = True)
+
+
+
+
+
+
+
 
